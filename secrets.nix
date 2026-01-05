@@ -14,4 +14,5 @@ let
 in
 {
   "tailscale/auth.age".publicKeys = keys;
+  "resend.age".publicKeys = keys;
 }
