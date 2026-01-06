@@ -17,6 +17,7 @@ in
   "tailscale/caddyAuth.age".publicKeys = keys;
 
   "forgejo/postgres.age".publicKeys = keys;
+  "forgejo/act-runner.age".publicKeys = keys;
 
   "resend.age".publicKeys = keys;
 }
