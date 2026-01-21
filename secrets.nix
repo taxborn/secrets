@@ -20,4 +20,5 @@ in
   "forgejo/act-runner.age".publicKeys = keys;
 
   "resend.age".publicKeys = keys;
+  "copyparty.age".publicKeys = keys;
 }
