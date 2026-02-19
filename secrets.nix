@@ -22,4 +22,5 @@ in
   "resend.age".publicKeys = keys;
   "copyparty.age".publicKeys = keys;
   "pds.age".publicKeys = keys;
+  "lastfm.age".publicKeys = keys;
 }
