@@ -11,6 +11,8 @@ let
   systemKeys = builtins.map (host: builtins.readFile ./publicKeys/root_${host}.pub) hosts;
   userKeys = builtins.map (user: builtins.readFile ./publicKeys/${user}.pub) users;
   keys = systemKeys ++ userKeys;
+
+  hostKey = host: [ (builtins.readFile ./publicKeys/root_${host}.pub) ] ++ userKeys;
 in
 {
   "tailscale/auth.age".publicKeys = keys;
@@ -24,4 +26,16 @@ in
   "grafana.age".publicKeys = keys;
   "pds.age".publicKeys = keys;
   "lastfm.age".publicKeys = keys;
+
+  "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
+  "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
+
+  "borg/tungsten/passphrase.age".publicKeys = hostKey "tungsten";
+  "borg/tungsten/ssh_key.age".publicKeys = hostKey "tungsten";
+
+  "borg/carbon/passphrase.age".publicKeys = hostKey "carbon";
+  "borg/carbon/ssh_key.age".publicKeys = hostKey "carbon";
+
+  "borg/helium-01/passphrase.age".publicKeys = hostKey "helium-01";
+  "borg/helium-01/ssh_key.age".publicKeys = hostKey "helium-01";
 }
