@@ -20,6 +20,7 @@ in
 
   "forgejo/postgres.age".publicKeys = keys;
   "forgejo/act-runner.age".publicKeys = keys;
+  "forgejo/signing_key.age".publicKeys = keys;
 
   "resend.age".publicKeys = keys;
   "copyparty.age".publicKeys = keys;
