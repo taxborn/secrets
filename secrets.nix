@@ -29,6 +29,9 @@ in
   "pds.age".publicKeys = keys;
   "lastfm.age".publicKeys = keys;
 
+  "borg/argon/passphrase.age".publicKeys = hostKey "argon";
+  "borg/argon/ssh_key.age".publicKeys = hostKey "argon";
+
   "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
   "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
 
