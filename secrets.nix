@@ -28,6 +28,7 @@ in
   "grafana.age".publicKeys = keys;
   "pds.age".publicKeys = keys;
   "lastfm.age".publicKeys = keys;
+  "hash-haus.age".publicKeys = keys;
 
   "borg/argon/passphrase.age".publicKeys = hostKey "argon";
   "borg/argon/ssh_key.age".publicKeys = hostKey "argon";
