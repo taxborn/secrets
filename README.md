@@ -232,7 +232,7 @@ create the following files:
         fish.enable = true;
       };
 
-      myHome.programs = {
+      myHome.taxborn.programs = {
         git.enable = true;
         gpg.enable = true;
         tmux.enable = true;

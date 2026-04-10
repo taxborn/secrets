@@ -13,52 +13,35 @@ let
   userKeys = builtins.map (user: builtins.readFile ./publicKeys/${user}.pub) users;
   keys = systemKeys ++ userKeys;
 
-  hostKeys =
-    hostList:
-    (builtins.map (host: builtins.readFile ./publicKeys/root_${host}.pub) hostList) ++ userKeys;
+  hostKey = host: [ (builtins.readFile ./publicKeys/root_${host}.pub) ] ++ userKeys;
 in
 {
-  # tailscale auth keys are consumed on every host
   "tailscale/auth.age".publicKeys = keys;
   "tailscale/caddyAuth.age".publicKeys = keys;
 
-  # forgejo server only runs on carbon
-  "forgejo/postgres.age".publicKeys = hostKeys [ "carbon" ];
-  "forgejo/signing_key.age".publicKeys = hostKeys [ "carbon" ];
-  "resend.age".publicKeys = hostKeys [ "carbon" ];
+  "forgejo/postgres.age".publicKeys = keys;
+  "forgejo/act-runner.age".publicKeys = keys;
+  "forgejo/signing_key.age".publicKeys = keys;
 
-  # forgejo-runner runs on carbon, argon, and helium-01
-  "forgejo/act-runner.age".publicKeys = hostKeys [
-    "carbon"
-    "argon"
-    "helium-01"
-  ];
+  "resend.age".publicKeys = keys;
+  "copyparty.age".publicKeys = keys;
+  "grafana.age".publicKeys = keys;
+  "pds.age".publicKeys = keys;
+  "lastfm.age".publicKeys = keys;
+  "hash-haus.age".publicKeys = keys;
 
-  # single-host services
-  "copyparty.age".publicKeys = hostKeys [ "helium-01" ];
-  "grafana.age".publicKeys = hostKeys [ "helium-01" ];
-  "pds.age".publicKeys = hostKeys [ "carbon" ];
-  "hash-haus.age".publicKeys = hostKeys [ "argon" ];
+  "borg/argon/passphrase.age".publicKeys = hostKey "argon";
+  "borg/argon/ssh_key.age".publicKeys = hostKey "argon";
 
-  # lastfm is consumed on carbon, uranium, and tungsten
-  "lastfm.age".publicKeys = hostKeys [
-    "carbon"
-    "uranium"
-    "tungsten"
-  ];
+  "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
+  "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
 
-  "borg/argon/passphrase.age".publicKeys = hostKeys [ "argon" ];
-  "borg/argon/ssh_key.age".publicKeys = hostKeys [ "argon" ];
+  "borg/tungsten/passphrase.age".publicKeys = hostKey "tungsten";
+  "borg/tungsten/ssh_key.age".publicKeys = hostKey "tungsten";
 
-  "borg/uranium/passphrase.age".publicKeys = hostKeys [ "uranium" ];
-  "borg/uranium/ssh_key.age".publicKeys = hostKeys [ "uranium" ];
+  "borg/carbon/passphrase.age".publicKeys = hostKey "carbon";
+  "borg/carbon/ssh_key.age".publicKeys = hostKey "carbon";
 
-  "borg/tungsten/passphrase.age".publicKeys = hostKeys [ "tungsten" ];
-  "borg/tungsten/ssh_key.age".publicKeys = hostKeys [ "tungsten" ];
-
-  "borg/carbon/passphrase.age".publicKeys = hostKeys [ "carbon" ];
-  "borg/carbon/ssh_key.age".publicKeys = hostKeys [ "carbon" ];
-
-  "borg/helium-01/passphrase.age".publicKeys = hostKeys [ "helium-01" ];
-  "borg/helium-01/ssh_key.age".publicKeys = hostKeys [ "helium-01" ];
+  "borg/helium-01/passphrase.age".publicKeys = hostKey "helium-01";
+  "borg/helium-01/ssh_key.age".publicKeys = hostKey "helium-01";
 }
