@@ -37,7 +37,6 @@ in
 | `forgejo/postgres.age` | carbon | forgejo database password |
 | `forgejo/act-runner.age` | carbon | forgejo CI runner token |
 | `resend.age` | carbon | resend API key |
-| `copyparty.age` | helium-01 | copyparty credentials |
 | `grafana.age` | helium-01 | grafana admin password |
 | `pds.age` | carbon | bluesky PDS config |
 | `lastfm.age` | carbon | last.fm API key |
