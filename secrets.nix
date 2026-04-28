@@ -7,7 +7,7 @@ let
     "uranium"
   ];
   users = [
-    "taxborn_yubikey"
+    "taxborn_age_yubikey"
   ];
   systemKeys = builtins.map (host: builtins.readFile ./publicKeys/root_${host}.pub) hosts;
   userKeys = builtins.map (user: builtins.readFile ./publicKeys/${user}.pub) users;
