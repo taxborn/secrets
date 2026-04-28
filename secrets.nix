@@ -18,21 +18,4 @@ in
 {
   "tailscale/auth.age".publicKeys = keys;
   "tailscale/caddyAuth.age".publicKeys = keys;
-
-  "resend.age".publicKeys = keys;
-
-  "borg/argon/passphrase.age".publicKeys = hostKey "argon";
-  "borg/argon/ssh_key.age".publicKeys = hostKey "argon";
-
-  "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
-  "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
-
-  "borg/tungsten/passphrase.age".publicKeys = hostKey "tungsten";
-  "borg/tungsten/ssh_key.age".publicKeys = hostKey "tungsten";
-
-  "borg/carbon/passphrase.age".publicKeys = hostKey "carbon";
-  "borg/carbon/ssh_key.age".publicKeys = hostKey "carbon";
-
-  "borg/helium-01/passphrase.age".publicKeys = hostKey "helium-01";
-  "borg/helium-01/ssh_key.age".publicKeys = hostKey "helium-01";
 }
