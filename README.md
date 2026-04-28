@@ -23,7 +23,6 @@ let
 in
 {
   "tailscale/auth.age".publicKeys = keys;
-  "forgejo/postgres.age".publicKeys = keys;
   # ...
 }
 ```
@@ -34,12 +33,6 @@ in
 |---|---|---|
 | `tailscale/auth.age` | all hosts | tailscale auth key |
 | `tailscale/caddyAuth.age` | carbon | caddy tailscale auth |
-| `forgejo/postgres.age` | carbon | forgejo database password |
-| `forgejo/act-runner.age` | carbon | forgejo CI runner token |
-| `resend.age` | carbon | resend API key |
-| `grafana.age` | helium-01 | grafana admin password |
-| `pds.age` | carbon | bluesky PDS config |
-| `lastfm.age` | carbon | last.fm API key |
 
 ## creating a new secret
 
