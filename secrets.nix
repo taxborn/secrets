@@ -19,15 +19,7 @@ in
   "tailscale/auth.age".publicKeys = keys;
   "tailscale/caddyAuth.age".publicKeys = keys;
 
-  "forgejo/postgres.age".publicKeys = keys;
-  "forgejo/act-runner.age".publicKeys = keys;
-  "forgejo/signing_key.age".publicKeys = keys;
-
   "resend.age".publicKeys = keys;
-  "grafana.age".publicKeys = keys;
-  "pds.age".publicKeys = keys;
-  "lastfm.age".publicKeys = keys;
-  "hash-haus.age".publicKeys = keys;
 
   "borg/argon/passphrase.age".publicKeys = hostKey "argon";
   "borg/argon/ssh_key.age".publicKeys = hostKey "argon";
