@@ -2,7 +2,7 @@ let
   hosts = [
     "argon"
     "carbon"
-    "helium-01"
+    "helium"
     "tungsten"
     "uranium"
   ];
