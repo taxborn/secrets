@@ -15,7 +15,7 @@ agenix-encrypted secrets for the nix-infra configuration.
 
 ```nix
 let
-  hosts = [ "carbon" "helium-01" "tungsten" "uranium" ];
+  hosts = [ "carbon" "helium" "tungsten" "uranium" ];
   users = [ "taxborn_yubikey" ];
   systemKeys = builtins.map (host: builtins.readFile ./publicKeys/root_${host}.pub) hosts;
   userKeys = builtins.map (user: builtins.readFile ./publicKeys/${user}.pub) users;
@@ -137,7 +137,7 @@ edit `secrets.nix` and add the hostname to the `hosts` list:
 ```nix
 hosts = [
   "carbon"
-  "helium-01"
+  "helium"
   "tungsten"
   "uranium"
   "new-host"  # add here
@@ -252,7 +252,7 @@ create the following files:
 add a disk layout under `modules/disko/`. look at existing configs for reference:
 
 - `luks-btrfs-uranium/` and `luks-btrfs-tungsten/` for LUKS-encrypted btrfs (desktops)
-- `btrfs-carbon/` and `btrfs-helium-01/` for plain btrfs (servers)
+- `btrfs-carbon/` and `btrfs-helium/` for plain btrfs (servers)
 
 ### 6. register the host in the flake
 
@@ -262,7 +262,7 @@ edit `modules/flake/nixos.nix` and add the hostname to the `genAttrs` list:
 inputs.nixpkgs.lib.genAttrs
   [
     "carbon"
-    "helium-01"
+    "helium"
     "tungsten"
     "uranium"
     "new-host"  # add here
