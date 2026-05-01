@@ -19,7 +19,7 @@ in
   "tailscale/auth.age".publicKeys = keys;
   "tailscale/caddyAuth.age".publicKeys = keys;
 
-  "mail/vaultwarden.age".publicKeys = keys;
+  "mail/vaultwarden.age".publicKeys = hostKey "carbon";
 
   "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
   "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
