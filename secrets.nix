@@ -22,6 +22,8 @@ in
   "atproto/pds.age".publicKeys = hostKey "carbon";
 
   "mail/vaultwarden.age".publicKeys = hostKey "carbon";
+  
+  "grafana/secretKey.age".publicKeys = hostKey "argon";
 
   "borg/uranium/passphrase.age".publicKeys = hostKey "uranium";
   "borg/uranium/ssh_key.age".publicKeys = hostKey "uranium";
